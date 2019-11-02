@@ -3,8 +3,6 @@ import logo from './logo.svg';
 import './Home.css';
 <<<<<<< HEAD
 import Gameboard from './Gameboard';
-=======
->>>>>>> d53d84a1cc61f0871fc931d7a2564ccd1b4acfb6
 import Particles from 'react-particles-js';
 import Chess from 'chess.js';
 import Options from './Options';
