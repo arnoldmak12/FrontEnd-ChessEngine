@@ -17,7 +17,7 @@ class Options extends React.Component {
 
         <div className="welcome-box">
           <span className="welcome-header">
-            Welcome to Bingus Inc. Chess Engine
+            Bingus Inc. Chess Engine
           </span>
         </div>
 
@@ -31,12 +31,18 @@ class Options extends React.Component {
 
           <ul className="difficulty-list1">
 
-            {select1.map((entry) => {
+            {select1.map((entry, index) => {
               return (
                 <li className="difficulty-entry">
 
                   <button className="difficulty-name"
-                    onClick={()=> window.open("someLink", "_blank")}
+                    entry = {entry.trim()}
+                    index = {index++}
+                    onClick={() => {
+                        var url = "/play/option" + index;
+                        console.log(index);
+                        window.open(url, "_self")
+                    }}
                   >
 
                     <span>{entry}</span>

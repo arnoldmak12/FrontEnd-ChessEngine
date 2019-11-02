@@ -4,6 +4,8 @@ import './Home.css';
 import Particles from 'react-particles-js';
 import Chess from 'chess.js';
 import Options from './Options';
+import test from './test'
+import { Route, Link, Switch, Redirect } from 'react-router-dom';
 
 var select1 = ['option 1', 'option 2', 'option 3'];
 var select2 = ['option 4', 'option 5', 'option 6'];
@@ -37,7 +39,11 @@ class Home extends React.Component {
           />
         </div>
 
-      <Options />
+      <Switch>
+            <Route exact path="/"  component={Options} />
+            <Route path="/play" component={test} />
+            <Redirect to="/" />
+      </Switch>
 
         
 
