@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './Home.css';
 import Difficulty from './Difficulty';
 import Chessboard from 'chessboardjsx';
+import Gameboard from './Gameboard';
 import Particles from 'react-particles-js';
 import Chess from 'chess.js';
 
