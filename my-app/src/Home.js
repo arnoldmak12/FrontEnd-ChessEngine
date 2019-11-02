@@ -1,7 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
 import './Home.css';
-<<<<<<< HEAD
 import Gameboard from './Gameboard';
 import Particles from 'react-particles-js';
 import Chess from 'chess.js';
