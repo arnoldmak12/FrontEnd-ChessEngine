@@ -42,7 +42,7 @@ class Home extends React.Component {
 
       <Switch>
             <Route exact path="/"  component={Options} />
-            <Route path="/play" component={test} />
+            <Route path="/play" component={Gameboard} />
             <Redirect to="/" />
       </Switch>
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import Chess from 'chess.js';
 import './Gameboard.css';
 import Chessboard from 'chessboardjsx';
@@ -14,8 +13,8 @@ class Gameboard extends React.Component {
   }
   render() {
     return (
-      <div className="Gameboard-layout">
-      <div className="background">
+      <div className="gameboard-layout">
+        <div className="background">
           <Particles
             params={{
               "particles": {
@@ -38,32 +37,20 @@ class Gameboard extends React.Component {
 
         <div className="information-box">
           <span className="welcome-header">
-            Difficulty: 
+            Difficulty:
           </span>
         </div>
-        
-     
-        <div className = "Gameboard-background">
-       {/* /* <img src="/background.jpg" />*/ }
-          <div className = "Gameboard-box">
-          
-            <Chessboard position="start"
-            darkSquareStyle = {{backgroundColor : '#B0C4DE'}}
-            lightSquareStyle = {{backgroundColor : 'white'}}
 
-              
-            
-             />
-            <div className = "Gauge-box">
-            
-            </div>
-          </div>
+        <div className="gameboard-box">
+
+          <Chessboard position="start"
+            darkSquareStyle={{ backgroundColor: '#B0C4DE' }}
+            lightSquareStyle={{ backgroundColor: 'white' }}
+          />
+
         </div>
+      </div>
 
-      
-
-    </div>
-        
     );
   }
 }
