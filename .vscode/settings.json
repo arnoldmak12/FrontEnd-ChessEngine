@@ -1,5 +1,5 @@
 {
     "git.ignoreLimitWarning": true,
-    "appService.defaultWebAppToDeploy": "/subscriptions/13ea316b-772a-4bdf-a363-1f680b35eeb0/resourceGroups/ChessEngine/providers/Microsoft.Web/sites/ChessEngine",
-    "appService.deploySubpath": ""
+    // "appService.defaultWebAppToDeploy": "/subscriptions/13ea316b-772a-4bdf-a363-1f680b35eeb0/resourceGroups/ChessEngine/providers/Microsoft.Web/sites/ChessEngine",
+    // "appService.deploySubpath": ""
 }
