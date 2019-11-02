@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+.home-layout {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(183deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
+}
+
+.welcome-box {
+  margin-top: 5%;
+  margin-left: 15%;
+}
+
+.welcome-header {
+  position: relative;
+  color: white;
+  font-size: 65px;
+}
+
+.select-box {
+  margin-top: 3%;
+  margin-left: 42%;
+}
+
+.select-header {
+  min-height: 100vh;
+  color: white;
+  font-size: 35px;
+  border-bottom: 2px solid white;
+}
+
+.difficulty-box {
+  width: 70%;
+  height: 55%;
+  margin-top: 3%;
+  margin-left: 15%;
+  border: 5px solid red;
+}
+
+ul.difficulty-list {
+  list-style: none;
+  display: inline;
+}
+
+li.difficulty-entry {
+  margin-left: 5%;
+}
