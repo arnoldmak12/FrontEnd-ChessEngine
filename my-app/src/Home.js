@@ -1,14 +1,11 @@
 import React from 'react';
 import logo from './logo.svg';
 import './Home.css';
-import Difficulty from './Difficulty';
-import Chessboard from 'chessboardjsx';
 import Particles from 'react-particles-js';
 import Chess from 'chess.js';
 
-var chess = new Chess();
-
 var select1 = ['option 1', 'option 2', 'option 3'];
+var select2 = ['option 4', 'option 5', 'option 6'];
 
 class Home extends React.Component {
   constructor(props) {
@@ -53,9 +50,27 @@ class Home extends React.Component {
 
         <div className="difficulty-box">
 
-          <ul className="difficulty-list">
+          <ul className="difficulty-list1">
 
             {select1.map((entry) => {
+              return (
+                <li className="difficulty-entry">
+
+                  <button className="difficulty-name">
+
+                    <span>{entry}</span>
+
+                  </button>
+
+                </li>
+              )
+            })}
+
+          </ul>
+
+          <ul className="difficulty-list2">
+
+            {select2.map((entry) => {
               return (
                 <li className="difficulty-entry">
 
