@@ -1,15 +1,18 @@
 import React from 'react';
 import logo from './logo.svg';
 import './Home.css';
-import Difficulty from './Difficulty';
-import Chessboard from 'chessboardjsx';
+<<<<<<< HEAD
 import Gameboard from './Gameboard';
+=======
+>>>>>>> d53d84a1cc61f0871fc931d7a2564ccd1b4acfb6
 import Particles from 'react-particles-js';
 import Chess from 'chess.js';
-
-var chess = new Chess();
+import Options from './Options';
+import test from './test'
+import { Route, Link, Switch, Redirect } from 'react-router-dom';
 
 var select1 = ['option 1', 'option 2', 'option 3'];
+var select2 = ['option 4', 'option 5', 'option 6'];
 
 class Home extends React.Component {
   constructor(props) {
@@ -40,39 +43,13 @@ class Home extends React.Component {
           />
         </div>
 
-        <div className="welcome-box">
-          <span className="welcome-header">
-            Welcome to Bingus Inc. Chess Engine
-          </span>
-        </div>
+      <Switch>
+            <Route exact path="/"  component={Options} />
+            <Route path="/play" component={test} />
+            <Redirect to="/" />
+      </Switch>
 
-        <div className="select-box">
-          <span className="select-header">
-            Select Opponent
-          </span>
-        </div>
-
-        <div className="difficulty-box">
-
-          <ul className="difficulty-list">
-
-            {select1.map((entry) => {
-              return (
-                <li className="difficulty-entry">
-
-                  <button className="difficulty-name">
-
-                    <span>{entry}</span>
-
-                  </button>
-
-                </li>
-              )
-            })}
-
-          </ul>
-
-        </div>
+        
 
       </div>
     );
