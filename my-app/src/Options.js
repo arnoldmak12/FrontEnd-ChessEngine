@@ -1,16 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
 import './Options.css';
-import Particles from 'react-particles-js';
-import Chess from 'chess.js';
 
 var select1 = ['option 1', 'option 2', 'option 3'];
 var select2 = ['option 4', 'option 5', 'option 6'];
 
 class Options extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         return (
             <div className="Options-layout">

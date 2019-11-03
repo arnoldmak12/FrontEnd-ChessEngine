@@ -1,20 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
 import './Home.css';
 import Gameboard from './Gameboard';
 import Particles from 'react-particles-js';
-import Chess from 'chess.js';
 import Options from './Options';
-import test from './test'
-import { Route, Link, Switch, Redirect } from 'react-router-dom';
-
-var select1 = ['option 1', 'option 2', 'option 3'];
-var select2 = ['option 4', 'option 5', 'option 6'];
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 class Home extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+
   render() {
     return (
       <div className="home-layout">
