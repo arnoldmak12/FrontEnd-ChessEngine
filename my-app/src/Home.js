@@ -38,8 +38,6 @@ class Home extends React.Component {
             <Redirect to="/" />
       </Switch>
 
-        
-
       </div>
     );
   }

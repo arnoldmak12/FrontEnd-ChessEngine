@@ -2,9 +2,7 @@ import React from 'react';
 import Chess from 'chess.js';
 import './Gameboard.css';
 import Chessboard from 'chessboardjsx';
-import Particles from 'react-particles-js';
 import PropTypes from "prop-types";
-import WithMoveValidation from './MoveValid';
 
 var game = new Chess();
 
@@ -32,60 +30,51 @@ class Gameboard extends React.Component {
 
     // illegal move
     if (move === null) return;
+
+    let postContents = sourceSquare + targetSquare;
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'http://localhost:8080', true);
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhr.onreadystatechange = function () { // Call a function when the state changes.
+      if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+        // Request finished. Do processing here.
+        this.game.move({
+          from: this.responseText.substring(0, 2),
+          to: this.responseText.substring(2, 4),
+          promotion: this.responseText.substring(4)
+        })
+      }
+    }
+
+    xhr.send(JSON.stringify({ "move": postContents }));
+
     this.setState(() => ({
       fen: this.game.fen(),
     }));
   };
 
 
-render() {
-  return (
-    <div className="gameboard-layout">
-      <div className="background">
-        <Particles
-          params={{
-            "particles": {
-              "number": {
-                "value": 50,
-              },
-              "color": {
-                "value": "FFFFF0"
-              },
-              "line_linked": {
-                "enable": true,
-              },
-              "size": {
-                "value": 4,
-              }
-            }
-          }}
-        />
+  render() {
+    return (
+      <div className="gameboard-layout">
+
+        <div className="gameboard-box">
+
+          <Chessboard
+            position={this.state.fen}
+            darkSquareStyle={{ backgroundColor: '#B0C4DE' }}
+            lightSquareStyle={{ backgroundColor: 'white' }}
+            onDrop={this.onDrop}
+            width="640"
+            onMouseOutSquare={this.onMouseOverSquare}
+          />
+
+        </div>
       </div>
 
-      <div className="information-box">
-        <span className="welcome-header">
-          Difficulty:
-          </span>
-      </div>
-
-      <div className="gameboard-box">
-
-        <Chessboard
-          position={this.state.fen}
-          darkSquareStyle={{ backgroundColor: '#B0C4DE' }}
-          lightSquareStyle={{ backgroundColor: 'white' }}
-          onDrop={this.onDrop}
-          width="640"
-          onMouseOutSquare={this.onMouseOverSquare}
-        />
-
-        {/* <WithMoveValidation /> */}
-
-      </div>
-    </div>
-
-  );
-}
+    );
+  }
 }
 
 export default Gameboard;
