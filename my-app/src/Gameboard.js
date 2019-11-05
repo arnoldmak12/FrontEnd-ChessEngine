@@ -1,8 +1,11 @@
+/* global $ */
 import React from 'react';
 import Chess from 'chess.js';
+import $ from 'jquery'
 import './Gameboard.css';
 import Chessboard from 'chessboardjsx';
 import PropTypes from "prop-types";
+import { existsTypeAnnotation } from '@babel/types';
 
 var game = new Chess();
 
@@ -17,6 +20,7 @@ class Gameboard extends React.Component {
 
   componentDidMount() {
     this.game = new Chess();
+
     this.setState({ fen: game.fen() });
   }
 
@@ -25,34 +29,60 @@ class Gameboard extends React.Component {
     let move = this.game.move({
       from: sourceSquare,
       to: targetSquare,
-      promotion: "q" // always promote to a queen for example simplicity
+      promotion: "q"
     });
+    let postContents = sourceSquare + targetSquare;
+      $.ajax({
+        type: 'POST',
+        accepts: 'application/json',
+        data: JSON.stringify(postContents),
+        contentType: 'application/json; charset-utf-8',
+        dataType: 'json',
+        success: fxnsuccessptr,
+        error: fxnerrorptr
+      }); // always promote to a queen for example simplicity
 
     // illegal move
     if (move === null) return;
 
-    let postContents = sourceSquare + targetSquare;
+    // var xhr = new XMLHttpRequest();
+    // xhr.open('POST', '127.0.0.1:8080', true);
+    // xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    // xhr.send(JSON.stringify({postContents}));
+    // xhr.onreadystatechange = function () { // Call a function when the state changes.
+    //   if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+    //     // Request finished. Do processing here.
+    //     this.game.move({
+    //       from: this.responseText.substring(0, 2),
+    //       to: this.responseText.substring(2, 4),
+    //       promotion: this.responseText.substring(4)
+    //     })
+    //   }
+    // }
+    //xhr.send(JSON.stringify({ "move": postContents }));
+    // window.onload( () => {
+    //   $.ajax({
+    //     type: 'POST',
+    //     accepts: 'application/json',
+    //     data: JSON.stringify(postContents),
+    //     contentType: 'application/json; charset-utf-8',
+    //     dataType: 'json',
+    //     success: fxnsuccessptr,
+    //     error: fxnerrorptr
+    //   });
+    // });
 
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://localhost:8080', true);
-    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    xhr.onreadystatechange = function () { // Call a function when the state changes.
-      if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-        // Request finished. Do processing here.
-        this.game.move({
-          from: this.responseText.substring(0, 2),
-          to: this.responseText.substring(2, 4),
-          promotion: this.responseText.substring(4)
-        })
-      }
+    function fxnsuccessptr(data) {
+      this.setState(() => ({
+        fen: this.game.fen()
+      }));
     }
 
-    xhr.send(JSON.stringify({ "move": postContents }));
-
-    this.setState(() => ({
-      fen: this.game.fen(),
-    }));
-  };
+    function fxnerrorptr() {
+      alert("error");
+    }
+  }
+  
 
 
   render() {
