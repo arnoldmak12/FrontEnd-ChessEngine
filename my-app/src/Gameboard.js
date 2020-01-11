@@ -46,7 +46,7 @@ class Gameboard extends React.Component {
         // traditional: true,
         type: 'GET',
         async: false,   
-        url: 'https://localhost:44338/api/test?fen=' + game.fen(),
+        url: 'https://localhost:44338/api/test?fen=' + postContents,
         //contentType: 'application/json',
         dataType: 'text',
         // data: String(postContents),
