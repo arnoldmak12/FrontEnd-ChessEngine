@@ -7,3 +7,40 @@
     justify-content: center;
     align-content: center;
   }
+
+  .moves {
+    position: relative;
+    left: 5%;
+    height: 100%;
+    /* background: yellow; */
+  }
+
+  .black {
+    /* background: red; */
+  }
+
+  .black h1{
+    color: white;
+    text-decoration: underline;
+  }
+
+  .black h2{
+    color: white;
+    text-align: center;
+    font-size: 180%;
+  }
+
+  .white {
+    /* background: green; */
+  }
+
+  .white h1{
+    color: white;
+    text-decoration: underline;
+  }
+
+  .white h2{
+    color: white;
+    text-align: center;
+    font-size: 180%;
+  }

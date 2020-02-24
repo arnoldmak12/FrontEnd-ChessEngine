@@ -1,7 +1,7 @@
 import React from 'react';
 import './Options.css';
 
-var select1 = ['option 1', 'option 2', 'option 3'];
+var select1 = ['Play As White', 'Play As Black'];
 var select2 = ['option 4', 'option 5', 'option 6'];
 
 class Options extends React.Component {
@@ -17,7 +17,7 @@ class Options extends React.Component {
 
                 <div className="select-box">
                     <span className="select-header">
-                        Select Opponent
+                        Select Color
           </span>
                 </div>
 
@@ -31,12 +31,12 @@ class Options extends React.Component {
 
                                     <button className="difficulty-name"
                                         entry={entry.trim()}
-                                        index={index++}
                                         onClick={() => {
-                                            var url = "/play/option" + index;
+                                            var url = "/play/" + (index === 1 ? "white/" : "black/");
                                             console.log(index);
                                             window.open(url, "_self")
                                         }}
+                                        index={index++}
                                     >
 
                                         <span>{entry}</span>
@@ -49,7 +49,7 @@ class Options extends React.Component {
 
                     </ul>
 
-                    <ul className="difficulty-list2">
+                    {/* <ul className="difficulty-list2">
 
                         {select2.map((entry, index) => {
                             return (
@@ -73,7 +73,7 @@ class Options extends React.Component {
                             )
                         })}
 
-                    </ul>
+                    </ul> */}
 
                 </div>
 
