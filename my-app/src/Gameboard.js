@@ -17,7 +17,8 @@ class Gameboard extends React.Component {
     gameEnd: false,
     whiteMove: "",
     blackMove: "",
-    turn: ""
+    turn: "",
+    userColor: ""
   };
 
   componentDidMount() {
@@ -66,13 +67,18 @@ class Gameboard extends React.Component {
 
     this.setState({ 
       fen: game.fen(),
-      turn: turn
+      turn: turn,
+      userColor: turn
      });
   }
 
-  onDrop = ({ sourceSquare, targetSquare }) => {
+  onDrop = ({ sourceSquare, targetSquare, piece }) => {
     
     var beforeFen = game.fen();
+
+    console.log(piece);
+
+    if (!piece.includes(this.state.userColor)) return;
 
     // see if the move is legal
     let move = game.move({
@@ -103,16 +109,10 @@ class Gameboard extends React.Component {
       })
     }
 
-      // console.log("White's Move: " + (postContents));
-      // console.log(game.fen().replace(/ /g, "%20"));
-
       $.ajax({
-        // traditional: true,
         type: 'GET',   
         url: 'https://localhost:44338/api/values?fen=' + beforeFen + '&move=' + postContents,
-        //contentType: 'application/json',
         dataType: 'text',
-        // data: String(postContents),
         success: 
         (data) => {
 
@@ -128,8 +128,8 @@ class Gameboard extends React.Component {
             state.setState({
               fen: game.fen()
             })
+
            console.log("New FEN: "+ game.fen());
-           console.log(state.state.turn + "       hhhhhhhhhhhhhhhhhhhhhhh");
            if(state.state.turn === "b"){
             state.setState({
               whiteMove: String(data).substring(0,4)
@@ -157,7 +157,7 @@ class Gameboard extends React.Component {
       }); // always promote to a queen for example simplicity
 
     this.setState({
-      fen: game.fen()
+      fen: game.fen(),
     });
   }
 
@@ -186,6 +186,7 @@ class Gameboard extends React.Component {
             width="640"
             onMouseOutSquare={this.onMouseOverSquare}
             onMouseoverSquare={this.onMouseoverSquare}
+            
           />
 
           <div className="moves">
@@ -201,11 +202,7 @@ class Gameboard extends React.Component {
             </div>
 
           </div>
-          
-
-
-
-
+        
         </div>
 
         {this.state.gameEnd ?
