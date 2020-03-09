@@ -17,8 +17,7 @@ class Gameboard extends React.Component {
     gameEnd: false,
     whiteMove: "",
     blackMove: "",
-    turn: "",
-    userColor: ""
+    turn: ""
   };
 
   componentDidMount() {
@@ -67,8 +66,7 @@ class Gameboard extends React.Component {
 
     this.setState({ 
       fen: game.fen(),
-      turn: turn,
-      userColor: turn
+      turn: turn
      });
   }
 
@@ -78,7 +76,7 @@ class Gameboard extends React.Component {
 
     console.log(piece);
 
-    if (!piece.includes(this.state.userColor)) return;
+    if (!piece.includes(this.state.turn)) return;
 
     // see if the move is legal
     let move = game.move({
@@ -111,7 +109,8 @@ class Gameboard extends React.Component {
 
       $.ajax({
         type: 'GET',   
-        url: 'https://localhost:44338/api/values?fen=' + beforeFen + '&move=' + postContents,
+        url: 'https://https://chessbackendapi.azurewebsites.net/api/values?fen=' + beforeFen + '&move=' + postContents,
+        // url: 'https://localhost:44338/api/values?fen=' + beforeFen + '&move=' + postContents,
         dataType: 'text',
         success: 
         (data) => {
