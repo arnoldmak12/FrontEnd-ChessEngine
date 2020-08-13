@@ -59,7 +59,7 @@ button.difficulty-name {
   width: 250%;
   padding-top: 30%;
   padding-bottom: 30%;
-  background: radial-gradient(circle, #11c7ff 0%, rgb(63, 242, 255) 0%, rgba(0,212,255,1) 50%);
+  background: radial-gradient(circle, #11c7ff 0%, rgb(45, 192, 202) 0%, rgb(0, 181, 218) 50%);
   border: none;
   border-radius: 25px;
 }
