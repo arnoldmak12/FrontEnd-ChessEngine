@@ -116,9 +116,34 @@ class Gameboard extends React.Component {
 
           //console.log("FEN Passed to API: "+ 'http://chess-engine.azurewebsites.net/api/values?fen=' + game.fen());
 
+          var to = String(data).substring(2,4);
+          var from = String(data).substring(0,2);
+
+          if(String(data) === "O-O"){
+            if(state.state.turn === "w"){
+              to = "g1";
+              from = "e1";
+            }
+            else{
+              to = "g8";
+              from = "e8";
+            }
+          }
+
+          if(String(data) === "O-O-O"){
+            if(state.state.turn === "w"){
+              to = "c1";
+              from = "e1";
+            }
+            else{
+              to = "c8";
+              from = "e8";
+            }
+          }
+
           game.move({
-             to: String(data).substring(2,4),
-             from: String(data).substring(0,2),
+             to: to,
+             from: from,
              promotion: (data.length === 5 ? String(data).substring(4) : "q")
            });
 
@@ -129,12 +154,12 @@ class Gameboard extends React.Component {
            //console.log("New FEN: "+ game.fen());
            if(state.state.turn === "b"){
             state.setState({
-              whiteMove: String(data).substring(0,4)
+              whiteMove: (to + from)
             })
           }
           else{
             state.setState({
-              blackMove: String(data).substring(0,4)
+              blackMove: (to + from)
             })
           }
 
