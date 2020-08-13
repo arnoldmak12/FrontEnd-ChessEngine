@@ -7,7 +7,7 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
-    <BrowserRouter>
+    <BrowserRouter basename="https://arnoldmak12.github.io/FrontEnd-ChessEngine">
         <Home />
     </BrowserRouter>
     , document.getElementById('root'));
