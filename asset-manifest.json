@@ -1,13 +1,13 @@
 {
   "main.css": "/FrontEnd-ChessEngine/static/css/main.ac59f98b.chunk.css",
-  "main.js": "/FrontEnd-ChessEngine/static/js/main.824653d8.chunk.js",
-  "main.js.map": "/FrontEnd-ChessEngine/static/js/main.824653d8.chunk.js.map",
+  "main.js": "/FrontEnd-ChessEngine/static/js/main.5d285d71.chunk.js",
+  "main.js.map": "/FrontEnd-ChessEngine/static/js/main.5d285d71.chunk.js.map",
   "runtime~main.js": "/FrontEnd-ChessEngine/static/js/runtime~main.e31a6aef.js",
   "runtime~main.js.map": "/FrontEnd-ChessEngine/static/js/runtime~main.e31a6aef.js.map",
   "static/js/2.1c856f44.chunk.js": "/FrontEnd-ChessEngine/static/js/2.1c856f44.chunk.js",
   "static/js/2.1c856f44.chunk.js.map": "/FrontEnd-ChessEngine/static/js/2.1c856f44.chunk.js.map",
   "index.html": "/FrontEnd-ChessEngine/index.html",
-  "precache-manifest.0e35204b8663f10f3d61c6dbb68ce12b.js": "/FrontEnd-ChessEngine/precache-manifest.0e35204b8663f10f3d61c6dbb68ce12b.js",
+  "precache-manifest.85c533e20a12e7b4128bf45f69cac5f9.js": "/FrontEnd-ChessEngine/precache-manifest.85c533e20a12e7b4128bf45f69cac5f9.js",
   "service-worker.js": "/FrontEnd-ChessEngine/service-worker.js",
   "static/css/main.ac59f98b.chunk.css.map": "/FrontEnd-ChessEngine/static/css/main.ac59f98b.chunk.css.map",
   "static/media/Home.css": "/FrontEnd-ChessEngine/static/media/gotham-medium.1c769a17.woff"
