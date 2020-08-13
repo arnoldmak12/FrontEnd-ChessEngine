@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/FrontEnd-ChessEngine/static/css/main.d8be2abc.chunk.css",
+    "main.js": "/FrontEnd-ChessEngine/static/js/main.c837297f.chunk.js",
+    "main.js.map": "/FrontEnd-ChessEngine/static/js/main.c837297f.chunk.js.map",
+    "runtime-main.js": "/FrontEnd-ChessEngine/static/js/runtime-main.648eff1f.js",
+    "runtime-main.js.map": "/FrontEnd-ChessEngine/static/js/runtime-main.648eff1f.js.map",
+    "static/js/2.c9aa2a72.chunk.js": "/FrontEnd-ChessEngine/static/js/2.c9aa2a72.chunk.js",
+    "static/js/2.c9aa2a72.chunk.js.map": "/FrontEnd-ChessEngine/static/js/2.c9aa2a72.chunk.js.map",
+    "index.html": "/FrontEnd-ChessEngine/index.html",
+    "precache-manifest.84434e9b8986ef3f38c74e20f781478a.js": "/FrontEnd-ChessEngine/precache-manifest.84434e9b8986ef3f38c74e20f781478a.js",
+    "service-worker.js": "/FrontEnd-ChessEngine/service-worker.js",
+    "static/css/main.d8be2abc.chunk.css.map": "/FrontEnd-ChessEngine/static/css/main.d8be2abc.chunk.css.map",
+    "static/js/2.c9aa2a72.chunk.js.LICENSE.txt": "/FrontEnd-ChessEngine/static/js/2.c9aa2a72.chunk.js.LICENSE.txt",
+    "static/media/Home.css": "/FrontEnd-ChessEngine/static/media/gotham-medium.1c769a17.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.648eff1f.js",
+    "static/js/2.c9aa2a72.chunk.js",
+    "static/css/main.d8be2abc.chunk.css",
+    "static/js/main.c837297f.chunk.js"
+  ]
+}
