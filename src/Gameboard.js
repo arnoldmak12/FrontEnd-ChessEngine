@@ -120,7 +120,7 @@ class Gameboard extends React.Component {
           var from = String(data).substring(0,2);
 
           if(String(data) === "O-O"){
-            if(state.state.turn === "w"){
+            if(state.state.turn === "b"){
               to = "g1";
               from = "e1";
             }
@@ -131,7 +131,7 @@ class Gameboard extends React.Component {
           }
 
           if(String(data) === "O-O-O"){
-            if(state.state.turn === "w"){
+            if(state.state.turn === "b"){
               to = "c1";
               from = "e1";
             }
