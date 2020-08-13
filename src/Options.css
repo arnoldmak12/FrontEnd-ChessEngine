@@ -1,6 +1,7 @@
 .welcome-box {
   margin-top: 5%;
   text-align: center;
+  margin-left: 4%;
 }
 
 .welcome-header {
@@ -13,6 +14,7 @@
 .select-box {
   margin-top: 4%;
   text-align: center;
+  margin-left: 2%;
 }
 
 .select-header {
