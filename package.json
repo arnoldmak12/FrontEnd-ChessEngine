@@ -1,7 +1,7 @@
 {
   "name": "front-end",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "homepage": "http://arnoldmak12.github.io/FrontEnd-ChessEngine",
   "dependencies": {
     "-": "0.0.1",
@@ -20,7 +20,7 @@
     "save-dev": "0.0.1-security"
   },
   "scripts": {
-    "start": "node server/server.js",
+    "start": "react-scripts start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -b gh-pages -d build",
     "build": "react-scripts build",
