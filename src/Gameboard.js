@@ -154,12 +154,12 @@ class Gameboard extends React.Component {
            //console.log("New FEN: "+ game.fen());
            if(state.state.turn === "b"){
             state.setState({
-              whiteMove: (to + from)
+              whiteMove: (from + to)
             })
           }
           else{
             state.setState({
-              blackMove: (to + from)
+              blackMove: (from + to)
             })
           }
 
