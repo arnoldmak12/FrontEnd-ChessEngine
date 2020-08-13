@@ -2,7 +2,7 @@
   "name": "front-end",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://Rocksrock18.github.io/ChessEngine",
+  "homepage": "http://arnoldmak12.github.io/FrontEnd-ChessEngine",
   "dependencies": {
     "-": "0.0.1",
     "chess.js": "^0.10.2",
