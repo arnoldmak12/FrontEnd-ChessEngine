@@ -227,10 +227,11 @@ class Gameboard extends React.Component {
         
         </div>
 
-        {this.state.gameEnd ?
+        { this.state.gameEnd ?
           <div>
-              <h1>Game Over</h1>
-          </div>:null}
+              <h1 className="game-over-message">Game Over</h1>
+          </div>
+          : null }
 
       </div>
 
