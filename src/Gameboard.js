@@ -87,7 +87,7 @@ class Gameboard extends React.Component {
     
 
     // illegal move
-    if (move === null) return;
+    if (move === null || game.game_over()) return;
 
     this.setState({
       fen: game.fen(),
@@ -227,9 +227,13 @@ class Gameboard extends React.Component {
         
         </div>
 
+        {game.in_check() && !(game.in_checkmate()) && <h1 className="game-over-message">Check</h1>}
+
         { this.state.gameEnd ?
           <div>
-              <h1 className="game-over-message">Game Over</h1>
+              {game.in_checkmate() && <h1 className="game-over-message">Checkmate</h1>}
+              {game.in_stalemate() && <h1 className="game-over-message">Stalemate</h1>}
+              {game.in_draw() && <h1 className="game-over-message">Draw</h1>}
           </div>
           : null }
 
