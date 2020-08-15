@@ -11,7 +11,7 @@ class Options extends React.Component {
 
                 <div className="welcome-box">
                     <span className="welcome-header">
-                        Bingus Inc. Chess Engine
+                        Jimmy the Chess Engine
           </span>
                 </div>
 
