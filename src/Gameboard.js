@@ -17,7 +17,8 @@ class Gameboard extends React.Component {
     gameEnd: false,
     whiteMove: "",
     blackMove: "",
-    turn: ""
+    turn: "",
+    waitingOn: "w"
   };
 
   componentDidMount() {
@@ -51,7 +52,8 @@ class Gameboard extends React.Component {
            //console.log("New FEN: "+ game.fen());
            
             this.setState({
-              whiteMove: String(data).substring(0,4)
+              whiteMove: String(data).substring(0,4),
+              waitingOn: "b"
             })
           
         },
@@ -91,6 +93,7 @@ class Gameboard extends React.Component {
 
     this.setState({
       fen: game.fen(),
+      waitingOn: this.state.waitingOn === "w" ? "b" : "w"
     });
 
     let postContents = "" + sourceSquare + targetSquare;
@@ -148,7 +151,8 @@ class Gameboard extends React.Component {
            });
 
             state.setState({
-              fen: game.fen()
+              fen: game.fen(),
+              waitingOn: this.state.waitingOn === "w" ? "b" : "w"
             })
 
            //console.log("New FEN: "+ game.fen());
@@ -184,6 +188,7 @@ class Gameboard extends React.Component {
   }
 
   onMoveEnd(){
+    
     if(game.game_over()){
       //console.log("GAME OVER");
       this.state.setState({
@@ -214,12 +219,14 @@ class Gameboard extends React.Component {
           <div className="moves">
 
             <div className="black">
-                <h1>Black's Move</h1>
+                {this.state.waitingOn === "w" && <h1>Black's Move</h1>}
+                {this.state.waitingOn === "b" && <h1 style={{color: "yellow"}}>Black's Move</h1>}
                 <h2>{this.state.blackMove}</h2>
             </div>
 
             <div className="white">
-                <h1>White's Move</h1>
+                {this.state.waitingOn === "b" && <h1>White's Move</h1>}
+                {this.state.waitingOn === "w" && <h1 style={{color: "yellow"}}>White's Move</h1>}
                 <h2>{this.state.whiteMove}</h2>
             </div>
 
