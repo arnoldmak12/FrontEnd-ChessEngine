@@ -223,10 +223,6 @@ class Gameboard extends React.Component {
                 <h2>{this.state.whiteMove}</h2>
             </div>
 
-          </div>
-        
-        </div>
-
         {game.in_check() && !(game.in_checkmate()) && <h1 className="game-over-message">Check</h1>}
 
         { this.state.gameEnd ?
@@ -236,6 +232,10 @@ class Gameboard extends React.Component {
               {game.in_draw() && <h1 className="game-over-message">Draw</h1>}
           </div>
           : null }
+
+          </div>
+
+        </div>
 
       </div>
 
