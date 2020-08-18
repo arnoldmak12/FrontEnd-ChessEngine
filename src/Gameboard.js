@@ -89,7 +89,7 @@ class Gameboard extends React.Component {
     
 
     // illegal move
-    if (move === null || game.game_over()) return;
+    if (move === null) return;
 
     this.setState({
       fen: game.fen(),
@@ -110,77 +110,79 @@ class Gameboard extends React.Component {
       })
     }
 
+    if( !game.game_over() ) {
       $.ajax({
-        type: 'GET',   
-        url: 'https://chess-engine.azurewebsites.net/api/values?fen=' + game.fen(),
-        dataType: 'text',
-        success: 
-        (data) => {
+          type: 'GET',   
+          url: 'https://chess-engine.azurewebsites.net/api/values?fen=' + game.fen(),
+          dataType: 'text',
+          success: 
+          (data) => {
 
-          //console.log("FEN Passed to API: "+ 'http://chess-engine.azurewebsites.net/api/values?fen=' + game.fen());
+            //console.log("FEN Passed to API: "+ 'http://chess-engine.azurewebsites.net/api/values?fen=' + game.fen());
 
-          var to = String(data).substring(2,4);
-          var from = String(data).substring(0,2);
+            var to = String(data).substring(2,4);
+            var from = String(data).substring(0,2);
 
-          if(String(data) === "O-O"){
-            if(state.state.turn === "b"){
-              to = "g1";
-              from = "e1";
+            if(String(data) === "O-O"){
+              if(state.state.turn === "b"){
+                to = "g1";
+                from = "e1";
+              }
+              else{
+                to = "g8";
+                from = "e8";
+              }
             }
-            else{
-              to = "g8";
-              from = "e8";
+
+            if(String(data) === "O-O-O"){
+              if(state.state.turn === "b"){
+                to = "c1";
+                from = "e1";
+              }
+              else{
+                to = "c8";
+                from = "e8";
+              }
             }
-          }
 
-          if(String(data) === "O-O-O"){
-            if(state.state.turn === "b"){
-              to = "c1";
-              from = "e1";
-            }
-            else{
-              to = "c8";
-              from = "e8";
-            }
-          }
-
-          game.move({
-             to: to,
-             from: from,
-             promotion: (data.length === 5 ? String(data).substring(4) : "q")
-           });
-
-            state.setState({
-              fen: game.fen(),
-              waitingOn: this.state.waitingOn === "w" ? "b" : "w"
-            })
-
-           //console.log("New FEN: "+ game.fen());
-           if(state.state.turn === "b"){
-            state.setState({
-              whiteMove: (from + to)
-            })
-          }
-          else{
-            state.setState({
-              blackMove: (from + to)
-            })
-          }
-
-           if(game.game_over()){
-            //console.log("GAME OVER");
-            state.setState({
-              gameEnd: true
+            game.move({
+              to: to,
+              from: from,
+              promotion: (data.length === 5 ? String(data).substring(4) : "q")
             });
-          }
-        },
-        // error: fxnerrorptr
-        error: function (jqXHR, error, errorThrown) {
-          alert(jqXHR.responseText
-          +"\n" + error
-          +"\n" + errorThrown);
+
+              state.setState({
+                fen: game.fen(),
+                waitingOn: this.state.waitingOn === "w" ? "b" : "w"
+              })
+
+            //console.log("New FEN: "+ game.fen());
+            if(state.state.turn === "b"){
+              state.setState({
+                whiteMove: (from + to)
+              })
+            }
+            else{
+              state.setState({
+                blackMove: (from + to)
+              })
+            }
+
+            if(game.game_over()){
+              //console.log("GAME OVER");
+              state.setState({
+                gameEnd: true
+              });
+            }
+          },
+          // error: fxnerrorptr
+          error: function (jqXHR, error, errorThrown) {
+            alert(jqXHR.responseText
+            +"\n" + error
+            +"\n" + errorThrown);
         }
       }); // always promote to a queen for example simplicity
+    }
 
     this.setState({
       fen: game.fen(),
